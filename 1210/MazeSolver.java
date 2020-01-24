@@ -1,9 +1,5 @@
 import java.util.*;
-/**
- * DFSMazeSolver �� BFSMazeSolver �� solve �́C���ق��z�����邽�߂̃C���^�[�t�F�[�X�D
- * �[�I�ɂ́C���ق̐��������\�b�h���K�v�ł���Ƃ������ƁD
- * @param <E> �v�f�̌^�D
- */
+
 interface MyCollection<E> {
 
     void init();
@@ -18,9 +14,9 @@ class MazeSolver {
         HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
         collection.init();
         HashSet<Pos> seen = new HashSet<Pos>();
-        Pos st = m.getStart(); // �X�^�[�g�ʒu
-        collection.in(m.getStart()); // �X�^�[�g�ʒu���L���[�ɒǉ�
-        seen.add(m.getStart()); // �X�^�[�g�ʒu���L���[�ɓ��ꂽ�ƋL��
+        Pos st = m.getStart();
+        collection.in(m.getStart());
+        seen.add(m.getStart());
         while(collection.size_count() > 0) {
             Pos p = collection.out();
             if(m.isGoal(p)) {
