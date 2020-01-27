@@ -8,15 +8,62 @@ interface MyCollection<E> {
     int size_count();
 }
 
+class MyStack<E> implements MyCollection<E> {
+    Stack<E> st;
+    MyStack() {
+        st = null;
+    }
+    public void init() {
+        st = new Stack<E>();
+    }
+
+    public void in(E s){
+        st.push(s);
+    }
+
+    public E out(){
+        return st.pop();
+    }
+
+    public int size_count(){
+        return  st.size();
+    }
+}
+
+class MyQueue<E> implements MyCollection<E> {
+    LinkedList<E> que;
+    MyQueue() {
+        que = null;
+    }
+    public void init() {
+        que = new LinkedList<E>();
+    }
+
+    public void in(E q){
+        que.add(q);
+    }
+
+    public E out(){
+        return que.remove();
+    }
+
+    public int size_count(){
+        return  que.size();
+    }
+}
+
 class MazeSolver {
 
     public static <Pos> void solve(Maze<Pos> m, MyCollection<Pos> collection) {
+
         HashMap<Pos, Pos> prev = new HashMap<Pos, Pos>();
         collection.init();
         HashSet<Pos> seen = new HashSet<Pos>();
+
         Pos st = m.getStart();
         collection.in(m.getStart());
         seen.add(m.getStart());
+
         while(collection.size_count() > 0) {
             Pos p = collection.out();
             if(m.isGoal(p)) {
@@ -40,46 +87,4 @@ class MazeSolver {
     }
 }
 
-class MyStack<E> implements MyCollection<E> {
-    Stack<E> st;
-    MyStack() {
-        st = null;
-    }
-    public void init() {
-        st = new Stack<E>();
-    }
 
-    public void in(E s){
-      st.push(s);
-    }
-
-    public E out(){
-      return st.pop();
-    }
-
-    public int size_count(){
-    return  st.size();
-    }
-}
-
-class MyQueue<E> implements MyCollection<E> {
-    LinkedList<E> que;
-    MyQueue() {
-        que = null;
-    }
-    public void init() {
-        que = new LinkedList<E>();
-    }
-
-    public void in(E q){
-      que.add(q);
-    }
-
-    public E out(){
-      return que.remove();
-    }
-
-    public int size_count(){
-      return  que.size();
-    }
-  }
