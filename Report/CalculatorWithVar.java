@@ -175,10 +175,10 @@ class StoreBIWM implements Command<BIwithMem> {
     String x;
 
     public boolean accept(String [] tokens) {
-        if(tokens.length != 2) return false;       // ���������邩�H
-        if(!tokens[0].equals("store")) return false; // �ŏ������Z�q���H
-        x = tokens[1];            // �ϐ������L�^
-        return true;   // �����܂ŗ����� OK
+        if(tokens.length != 2) return false;
+        if(!tokens[0].equals("store")) return false;
+        x = tokens[1];
+        return true;
     }
 
     public BIwithMem exec(BIwithMem res) {
@@ -193,10 +193,10 @@ class LoadBIWM implements Command<BIwithMem> {
     String x;
 
     public boolean accept(String [] tokens) {
-        if(tokens.length != 2) return false;       // ���������邩�H
-        if(!tokens[0].equals("load")) return false; // �ŏ������Z�q���H
-        x = tokens[1];            // �ϐ������L�^
-        return true;   // �����܂ŗ����� OK
+        if(tokens.length != 2) return false;
+        if(!tokens[0].equals("load")) return false;
+        x = tokens[1];
+        return true;
     }
 
     public BIwithMem exec(BIwithMem res) {
